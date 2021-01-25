@@ -1,6 +1,6 @@
 # due-diligence-cordapp
 <p align="center">
-  <img src="./image.png" alt="Corda" width="600">
+  <img src="./image.png" alt="Corda" width="800">
 </p>
 
 ## Running the Cordapp
