@@ -34,11 +34,13 @@ Then, we will instruct PartyA to share a copy of the auditing result with PartyB
 flow start ShareAuditingResultInitiator AuditingResultID: <XXXX-XXX-XXXX-XXXXX-XXXXXX>, sendTo: PartyB, trustedAuditorAttachment: "D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD"
 ```
 This flow will return the LinearId of the copy of auditing report, you would need this in Step #6. 
+
 Step #4: Go to PartyB, do a query to confirm the delievery of copy of the Auditing Report.
 ```
 run vaultQuery contractStateType: net.corda.samples.duediligence.states.CopyOfCoporateRecordsAuditRequest
 ```
 As of now, the sharing of the trusted auditing report is done. What left now for both PartyA and PartyB in this use case is to upload the Corporate Records auditing report into a due-diligence list, which they can share with a regulator.(You can again alter this step to suit any other use cases). 
+
 
 Step #5: Go to PartyA, Attach the Corporate Records auditing report into a due-diligence checklist and report to the Regulator. Again, the approvalId is the linearId returned in Step #1.
 ```
