@@ -3,6 +3,16 @@
   <img src="./image.png" alt="Corda">
 </p>
 
+## Pre-running the app
+
+Deploying nodes: `./gradlew clean deployNodes`
+
+Starting the nodes: `./build/nodes/runnodes`
+
+Uploading whitelisted Auditors: `./gradlew uploadWhitelists`
+
+
+
 ## Running the Cordapp
 Step #1: At PartyA, file the original Corporate Records auditing process with Auditor(TCF National Bank Wisconsin)
 ```
