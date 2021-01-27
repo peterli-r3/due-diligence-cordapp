@@ -14,12 +14,12 @@ Uploading whitelisted Auditors: `./gradlew uploadWhitelists`
 
 
 ## Running the Cordapp
-Step #1: At PartyA, file the original Corporate Records auditing process with Auditor(TCF National Bank Wisconsin)
+Step #1: At PartyA, file the original Corporate Records auditing process with Auditor(Trusted Auditor)
 ```
 flow start RequestToValidateCorporateRecordsInitiator validater: Trusted Auditor, numberOfFiles: 10
 ```
 
-Step #2: Go to the TCF National Bank Wisconsin Node, validate the auditing request(This step symbolize the auditing process by this third party auditor). Put in the linearId which was returned in Step #1.
+Step #2: Go to the Trusted Auditor Node, validate the auditing request(This step symbolize the auditing process by this third party auditor). Put in the linearId which was returned in Step #1.
 ```
 flow start ValidateCorporateRecordsInitiator linearId: <XXXX-XXX-XXXX-XXXXX-XXXXXX>
 ```
