@@ -16,7 +16,7 @@ Uploading whitelisted Auditors: `./gradlew uploadWhitelists`
 ## Running the Cordapp
 Step #1: At PartyA, file the original Corporate Records auditing process with Auditor(TCF National Bank Wisconsin)
 ```
-flow start RequestToValidateCorporateRecordsInitiator validater: TCF National Bank Wisconsin, numberOfFiles: 10
+flow start RequestToValidateCorporateRecordsInitiator validater: Trusted Auditor, numberOfFiles: 10
 ```
 
 Step #2: Go to the TCF National Bank Wisconsin Node, validate the auditing request(This step symbolize the auditing process by this third party auditor). Put in the linearId which was returned in Step #1.
@@ -31,7 +31,7 @@ run vaultQuery contractStateType: net.corda.samples.duediligence.states.Corporat
 ```
 Then, we will instruct PartyA to share a copy of the auditing result with PartyB: (Again, You would need put in the linearId returned from Step #1). The parameter `trustedAuditorAttachment` is a jar file which records the trusted auditors. If PartyA used an untrusted auditor to accquire the corporate records auditing report. He will be prohibited to share with anyone because it is valueless effort(in this business use case, Of course you can modify the business use cases).
 ```
-flow start ShareAuditingResultInitiator AuditingResultID: <XXXX-XXX-XXXX-XXXXX-XXXXXX>, sendTo: PartyB, trustedAuditorAttachment: "D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD"
+flow start ShareAuditingResultInitiator AuditingResultID: <XXXX-XXX-XXXX-XXXXX-XXXXXX>, sendTo: BankB, trustedAuditorAttachment: "D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD"
 ```
 This flow will return the LinearId of the copy of auditing report, you would need this in Step #6. 
 
