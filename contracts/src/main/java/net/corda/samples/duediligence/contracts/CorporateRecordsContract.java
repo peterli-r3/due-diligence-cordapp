@@ -100,9 +100,9 @@ public class CorporateRecordsContract implements Contract {
                 participants.add(participant);
             }
 
-            // overlap is whether any participants in the transaction belong to a blacklisted org.
-            Set<String> overlap = new HashSet<>(whitelistedCompanies);
-            overlap.retainAll(new HashSet<>(participantsOrgs)); // intersection
+            // overlap is whether any participants in the transaction belong to a whitelisted org.
+            Set<String> overlap = new HashSet<>(whitelistedCompanies); //Crossland Savings & TCF National Bank Wisconsin
+            overlap.retainAll(new HashSet<>(participantsOrgs)); // intersection | TCF & PartyA
 
             ContractsDSL.requireThat(req -> {
                 req.using("The agreement did not use any whitelisted auditors" + overlap.toString(), (!overlap.isEmpty()));

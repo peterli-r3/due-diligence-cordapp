@@ -26,13 +26,13 @@ public class ShareAuditingResult {
 
         private UniqueIdentifier AuditingResultID;
         private Party sendTo;
-        private static SecureHash untrustedPartiesAttachment;
+        private static SecureHash trustedAuditorAttachment;
 
 
-        public ShareAuditingResultInitiator(UniqueIdentifier AuditingResultID, Party sendTo, SecureHash untrustedPartiesAttachment) {
+        public ShareAuditingResultInitiator(UniqueIdentifier AuditingResultID, Party sendTo, SecureHash trustedAuditorAttachment) {
             this.AuditingResultID = AuditingResultID;
             this.sendTo = sendTo;
-            this.untrustedPartiesAttachment = untrustedPartiesAttachment;
+            this.trustedAuditorAttachment = trustedAuditorAttachment;
 
         }
 
@@ -44,7 +44,8 @@ public class ShareAuditingResult {
             QueryCriteria.LinearStateQueryCriteria inputCriteria = new QueryCriteria.LinearStateQueryCriteria()
                     .withUuid(Arrays.asList(UUID.fromString(AuditingResultID.toString())))
                     .withStatus(Vault.StateStatus.UNCONSUMED)
-                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);            StateAndRef inputStateAndRef = getServiceHub().getVaultService().queryBy(CorporateRecordsAuditRequest.class, inputCriteria).getStates().get(0);
+                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
+            StateAndRef inputStateAndRef = getServiceHub().getVaultService().queryBy(CorporateRecordsAuditRequest.class, inputCriteria).getStates().get(0);
             CorporateRecordsAuditRequest input = (CorporateRecordsAuditRequest) inputStateAndRef.getState().getData();
 
             //Send the copy to PartyB.
@@ -63,7 +64,7 @@ public class ShareAuditingResult {
                     .addOutputState(copyOfResult)
                     .addCommand(new CorporateRecordsContract.Commands.Share(),
                             Arrays.asList(input.getApplicant().getOwningKey(),sendTo.getOwningKey()))
-                    .addAttachment(untrustedPartiesAttachment);
+                    .addAttachment(trustedAuditorAttachment);
             ;
 
             // Verify that the transaction is valid.

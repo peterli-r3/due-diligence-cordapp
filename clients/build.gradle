@@ -51,12 +51,3 @@ task uploadWhitelists(type: JavaExec, dependsOn: assemble) {
     main = 'net.corda.samples.duediligence.client.Client'
     args 'localhost:10006', 'localhost:10009', 'localhost:10012'
 }
-
-//flow start RequestToValidateCorporateRecordsInitiator validater: TCF National Bank Wisconsin, numberOfFiles: 10
-//flow start ValidateCorporateRecordsInitiator linearId:
-//flow start ShareAuditingResultInitiator AuditingResultID: 061daecb-94a5-456c-a22e-d04c4e6ea987, sendTo: PartyB, untrustedPartiesAttachment: "D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD"
-//run vaultQuery contractStateType: net.corda.samples.duediligence.states.CorporateRecordsAuditRequest
-//run vaultQuery contractStateType: net.corda.samples.duediligence.states.CopyOfCoporateRecordsAuditRequest
-
-
-//flow start RequestToValidateCorporateRecordsInitiator validater: PartyB, numberOfFiles: 10

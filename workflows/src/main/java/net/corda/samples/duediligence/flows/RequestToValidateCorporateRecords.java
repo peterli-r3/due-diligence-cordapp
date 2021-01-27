@@ -57,7 +57,7 @@ public class RequestToValidateCorporateRecords {
 
             // Notarise and record the transaction in both parties' vaults.
             subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
-            return "Corporate Records Auditing Request has sent to: " + cr.getValidater().getName().getOrganisationUnit()
+            return "Corporate Records Auditing Request has sent to: " + cr.getValidater().getName().getOrganisation()
                     +"\nCase Id: "+ cr.getLinearId();
         }
     }

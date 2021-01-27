@@ -18,6 +18,9 @@ import java.util.List;
 // *********
 @BelongsToContract(CorporateRecordsContract.class)
 public class CorporateRecordsAuditRequest implements LinearState {
+    /*This can include reviewing incorporation documents, company constitutions,
+    organisational charts, a list of security holders, employee share plans and any
+    options granted to acquire securities.*/
 
     //private variables
     private Boolean qualification = false;

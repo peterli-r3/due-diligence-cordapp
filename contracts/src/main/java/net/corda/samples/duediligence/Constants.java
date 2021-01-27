@@ -8,11 +8,11 @@ import java.util.List;
 public interface Constants {
     //Whitelisted Corporate Auditors
     String CORPORATE_JAR_PATH = "../contracts/src/main/resources/corporateAuditors.jar";
-    SecureHash CORPORATE_JAR_HASH = SecureHash.parse("D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD");
+    SecureHash CORPORATE_JAR_HASH = SecureHash.parse("8DF3275D80B26B9A45AB022F2FDA4A2ED996449B425F8F2245FA5BCF7D1AC587");
     String CORPORATE_ATTACTMENT_FILE_NAME = "whitelistedCorporateAuditors.txt";
     List<String> CORPORATE_ATTACHMENT_EXPECTED_CONTENTS = Arrays.asList(
             "Crossland Savings",
-            "TCF National Bank Wisconsin"
+            "Trusted Auditor"
     );
 
     //Whitelisted Finance Auditors
