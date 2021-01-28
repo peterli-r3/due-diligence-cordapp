@@ -31,7 +31,7 @@ run vaultQuery contractStateType: net.corda.samples.duediligence.states.Corporat
 ```
 Then, we will instruct PartyA to share a copy of the auditing result with PartyB: (Again, You would need put in the linearId returned from Step #1). The parameter `trustedAuditorAttachment` is a jar file which records the trusted auditors. If PartyA used an untrusted auditor to accquire the corporate records auditing report. He will be prohibited to share with anyone because it is valueless effort(in this business use case, Of course you can modify the business use cases).
 ```
-flow start ShareAuditingResultInitiator AuditingResultID: <XXXX-XXX-XXXX-XXXXX-XXXXXX>, sendTo: BankB, trustedAuditorAttachment: "D1DE974D54752CDD0474424B0541B8F2EECF91DBEF41FFC53BEF3666E26047BD"
+flow start ShareAuditingResultInitiator AuditingResultID: <XXXX-XXX-XXXX-XXXXX-XXXXXX>, sendTo: BankB, trustedAuditorAttachment: "8DF3275D80B26B9A45AB022F2FDA4A2ED996449B425F8F2245FA5BCF7D1AC587"
 ```
 This flow will return the LinearId of the copy of auditing report, you would need this in Step #6. 
 
